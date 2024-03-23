@@ -1,0 +1,54 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+    overflow: none;
+    z-index: 999;
+
+  }
+  
+  .card {
+    flex: 0 0 calc(33.33% - 20px);
+    /* margin: 10px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition:  filter 0.3s ease;
+    transform-origin: center;
+    filter: blur(0);
+    z-index: 999;
+
+  }
+  
+  .card:hover {
+    filter: none;
+  }
+  
+  .cards:hover .card:not(:hover) {
+    filter: blur(5px);
+  }
+  
+  .card img {
+    width: 15%;
+    height: auto; 
+    color: beige;
+    filter: brightness(02) invert(); 
+  }
+ 
+  .card .p1 {
+    font-size: 30px;
+    margin-top: 10px;
+    color: beige;
+    
+  }
+  
+  .card .p2 {
+    font-size: 16px;
+    margin-top: 10px;
+    color: beige;
+  }
+  
