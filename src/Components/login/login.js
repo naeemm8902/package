@@ -4,6 +4,7 @@ import './login.css'; // Import the CSS file for styling
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
 
@@ -15,7 +16,7 @@ const Login = () => {
     setEmail(value);
 
     if (value.length < 3) {
-      setEmailError('Email must contain at least 3 characters.');
+      setEmailError('Email must contain at least 3 characters and @');
       console.log('error: email length');
     } else if (!value.includes('@')) {
       setEmailError('Email must contain "@" symbol.');
@@ -24,10 +25,28 @@ const Login = () => {
       setEmailError('');
     }
   };
+  const handlePassword=(e)=>{
+    const {value}=e.target;
+    setPassword(value);
+    if (value.length<8) {
+      setPasswordError("Password must be atleast 8 characters");
+    }
+    else{
+      setPasswordError("");
+    }
+  }
+  const handleform=(e)=>{
+    e.preventDefault();
+    const Dataorm={
+      email,
+      password
+    }
+    console.log("Dataform",Dataorm)
+  }
 
   return (
     <div className="overlay">
-      <form>
+      <form onSubmit={handleform}>
         <div className="con">
           <header className="head-form">
             <h2>Log In</h2>
@@ -54,7 +73,6 @@ const Login = () => {
             <span className="input-item">
               <i className="fa fa-key"></i>
             </span>
-
             <input
               className="form-input"
               type={showPassword ? 'text' : 'password'}
@@ -62,7 +80,8 @@ const Login = () => {
               id="pwd"
               name="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handlePassword}
+              // onChange={(e) => setPassword(e.target.value)}
               required
             />
             <span>
@@ -74,6 +93,9 @@ const Login = () => {
                 onClick={togglePasswordVisibility}
               ></i>
             </span>
+            <div className="error-container">
+                {passwordError && <span className="error-msg">{passwordError}</span>}
+            </div>
             <br />
             <button type="submit" className="btn log-in">
               Log In

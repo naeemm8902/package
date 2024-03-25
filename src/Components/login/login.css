@@ -97,6 +97,7 @@ input[class="form-input"]{
     
 }
 input[id="txt-input"] {width: 250px;}
+input[id="txt-input"]:focus {background-color: rgb(238, 235, 240);}
 /* focus  */
 input:focus {
     transform: translateX(-2px);

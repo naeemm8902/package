@@ -11,8 +11,8 @@ export default function App() {
     <div className="main">
       <Navbar />
       {/* <Login /> */}
-      <Signup />
-      {/* <Home/> */}
+      {/* <Signup /> */}
+      <Home/>
       {/* <ClassC /> */}
     </div>
   );
