@@ -3,8 +3,12 @@ import './navbar2.css';
 import Button from './component/button';
 import { useHistory, useNavigate } from 'react-router-dom'; // Import useHistory from react-router-dom
 
-export default function Navbar() {
+export default function Navbar({showloginButton,showSigninButton}) {
   const [showMenu, setShowMenu] = useState(false);
+  const [showLogin, setShowLogin] = useState(showloginButton !== undefined ? showloginButton : true);
+  const [showSignup, setSignup] = useState(showSigninButton !== undefined ? showSigninButton : true);
+  console.log('showLoginButton prop:', showloginButton); 
+
 const navigate = useNavigate();
   const handleMenuClick = () => {
     setShowMenu(!showMenu);
@@ -12,6 +16,9 @@ const navigate = useNavigate();
   const loginpage=()=>{
     // history.push('/login');
     navigate('/login')
+  }
+  const signuppage=()=>{
+    navigate('/signup')
   }
   return (
     <nav>
@@ -29,8 +36,10 @@ const navigate = useNavigate();
         <i id='bar' className={showMenu ? 'fas fa-times' : 'fas fa-bars'}></i>
       </div>
       <div>
-        <Button  text="Login" color="white" backgroundColor="red" hover="black" onClick={loginpage} />
-        <Button text="SignUp" color="white" backgroundColor="green" hover="black" />
+   
+        {showLogin ?(<Button  text="Login" color="white" backgroundColor="red" hover="black" onClick={loginpage} />): null}
+        {/* <Button  text="Login" color="white" backgroundColor="red" hover="black" onClick={loginpage} /> */}
+        {showSignup? (<Button text="SignUp" color="white" backgroundColor="green" hover="black" onClick={signuppage}/>):null}
       </div>
     </nav>
   );

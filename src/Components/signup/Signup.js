@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select'; // Import the Select component
 import './signup.css'; // Import the CSS file for styling
+import Navbar from '../navbar/navbar';
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -144,6 +145,8 @@ const validate_form = () => {
 };
 
   return (
+    <div className="main">
+    <Navbar  showSigninButton={false}/>
     <div className="overlay">
       <form onSubmit={submitsingup}>
         <div className="con">
@@ -359,6 +362,7 @@ const validate_form = () => {
           </div>
         </div>
       </form>
+    </div>
     </div>
   );
 };

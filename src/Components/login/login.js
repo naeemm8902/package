@@ -47,7 +47,7 @@ const Login = () => {
 
   return (
     <div className="main">
-    <Navbar />
+      <Navbar showloginButton={false} /> {/* Pass the prop showloginButton={false} */}
     <div className="overlay">
       <form onSubmit={handleform}>
         <div className="con">
