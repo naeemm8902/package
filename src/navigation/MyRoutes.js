@@ -7,6 +7,12 @@ import {
 import Home from "../Components/home/home";
 import Login from "../Components/login/login";
 import ErrorPage from "../Components/errorPage/errorPage";
+import Signup from "../Components/signup/Signup";
+import Shop from "../Components/shop/Shop";
+import Blog from "../Components/blog/Blog";
+import Contact from "../Components/contact/Contact";
+import About from "../Components/about/About";
+import Data from "../Components/data/Data";
 
 
 const myRoutes = createBrowserRouter([
@@ -19,7 +25,47 @@ const myRoutes = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+        errorElement: <ErrorPage />,
+
       },
+      {
+        path: "/signup",
+        element: <Signup />,
+        errorElement: <ErrorPage />,
+
+      },
+      {
+        path: "/shop",
+        element: <Shop />,
+        errorElement: <ErrorPage />,
+
+      },
+      {
+        path: "/blog",
+        element: <Blog/>,
+        errorElement: <ErrorPage />,
+
+      },
+      {
+        path: "/about",
+        element: <About/>,
+        errorElement: <ErrorPage />,
+
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+        errorElement: <ErrorPage />,
+
+      },
+      {
+        path: "/data",
+        element: <Data />,
+        errorElement: <ErrorPage />,
+
+      },
+  
+ 
   ]);
   
 

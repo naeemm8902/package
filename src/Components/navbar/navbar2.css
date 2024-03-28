@@ -9,6 +9,7 @@ nav {
   }
   
   #navbar {
+    /* position: fixed; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,9 +19,11 @@ nav {
     list-style: none;
     padding: 0 20px;
     position: relative;
+    text-decoration: none;
+    color: #fff;
   }
   
-  #navbar li a {
+  #navbar a {
     text-decoration: none;
     font-size: 1.3rem;
     font-weight: 600;
@@ -59,6 +62,7 @@ nav {
   
   @media screen and (max-width: 769px) {
     #navbar {
+      /* position: relative; */
       display: flex;
       flex-direction: column;
       align-items: flex-start;

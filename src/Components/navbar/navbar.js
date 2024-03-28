@@ -1,45 +1,102 @@
-import React, { useState } from 'react';
-import './navbar2.css';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, NavLink } from 'react-router-dom'; // Import useHistory from react-router-dom
 import Button from './component/button';
-import { useHistory, useNavigate } from 'react-router-dom'; // Import useHistory from react-router-dom
+import './navbar2.css';
 
-export default function Navbar({showloginButton,showSigninButton}) {
+export default function Navbar({
+  showloginButton,
+  showSigninButton,
+  activeLink,
+}) {
   const [showMenu, setShowMenu] = useState(false);
-  const [showLogin, setShowLogin] = useState(showloginButton !== undefined ? showloginButton : true);
-  const [showSignup, setSignup] = useState(showSigninButton !== undefined ? showSigninButton : true);
-  console.log('showLoginButton prop:', showloginButton); 
-
-const navigate = useNavigate();
+  const [showLogin, setShowLogin] = useState(
+    showloginButton !== undefined ? showloginButton : true,
+  );
+  const [showSignup, setSignup] = useState(
+    showSigninButton !== undefined ? showSigninButton : true,
+  );
+  console.log('showLoginButton prop:', showloginButton);
+  const navigate = useNavigate();
   const handleMenuClick = () => {
     setShowMenu(!showMenu);
   };
-  const loginpage=()=>{
+  const loginpage = () => {
     // history.push('/login');
-    navigate('/login')
-  }
-  const signuppage=()=>{
-    navigate('/signup')
-  }
+    navigate('/login');
+  };
+  const signuppage = () => {
+    navigate('/signup');
+  };
   return (
     <nav>
-      <a className="imgg"href="/">
+      <a className="imgg" href="/">
         <img src="./images/logo.svg" alt="sad" />
       </a>
-      <ul id='navbar' className={showMenu ? 'active' : ''}>
-        <li><a className="active" href="/">Home</a></li>
-        <li><a href="/">Shop</a></li>
-        <li><a href="/">Blog</a></li>
-        <li><a href="/">About</a></li>
-        <li><a href="/">Contact</a></li>
+      <ul id="navbar" className={showMenu ? 'active' : ''}>
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive, isPending }) => (isActive ? 'active' : '')}
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/Shop"
+            className={({ isActive, isPending }) => (isActive ? 'active' : '')}
+          >
+            Shop
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/about"
+            className={({ isActive, isPending }) => (isActive ? 'active' : '')}
+          >
+            about
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/contact"
+            className={({ isActive, isPending }) => (isActive ? 'active' : '')}
+          >
+            contact
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/data"
+            className={({ isActive, isPending }) => (isActive ? 'active' : '')}
+          >
+            Data
+          </NavLink>
+        </li>
       </ul>
-      <div id='mobile' onClick={handleMenuClick}>
-        <i id='bar' className={showMenu ? 'fas fa-times' : 'fas fa-bars'}></i>
+      <div id="mobile" onClick={handleMenuClick}>
+        <i id="bar" className={showMenu ? 'fas fa-times' : 'fas fa-bars'}></i>
       </div>
       <div>
-   
-        {showLogin ?(<Button  text="Login" color="white" backgroundColor="red" hover="black" onClick={loginpage} />): null}
+        {showLogin ? (
+          <Button
+            text="Login"
+            color="white"
+            backgroundColor="red"
+            hover="black"
+            onClick={loginpage}
+          />
+        ) : null}
         {/* <Button  text="Login" color="white" backgroundColor="red" hover="black" onClick={loginpage} /> */}
-        {showSignup? (<Button text="SignUp" color="white" backgroundColor="green" hover="black" onClick={signuppage}/>):null}
+        {showSignup ? (
+          <Button
+            text="SignUp"
+            color="white"
+            backgroundColor="green"
+            hover="black"
+            onClick={signuppage}
+          />
+        ) : null}
       </div>
     </nav>
   );
