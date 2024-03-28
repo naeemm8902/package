@@ -23,7 +23,7 @@ form {
     border-radius: 5px;
     margin: 2% auto;
     box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
-    padding: 0;
+    padding: 2%;
     background-image: linear-gradient(-225deg, #E3FDF5 50%, #FFE6FA 50%);
 }
 /* form Container */
@@ -39,7 +39,7 @@ form .con {
 
 /* the header form form */
 header {
-    /* margin: 2% auto 10% auto; */
+    margin: 2% auto 10% auto;
     text-align: center;
 }
 /* Login title form form */
@@ -66,14 +66,14 @@ header p {letter-spacing: 0.05em;}
   
     margin: 5.9px 0 0 0;
     margin-left: -20px;
-    padding: 14px 9px 19px 0px;
+    padding: 15px 9px 19px 0px;
     border-radius: 0px 5px 5px 0px;
   
     float: right;
     position: relative;
     right: 1%;
     top: -.2%;
-    z-index: 999;
+    z-index: 5;
     
     cursor: pointer;
 }
@@ -97,40 +97,13 @@ input[class="form-input"]{
     
 }
 input[id="txt-input"] {width: 250px;}
-
+input[id="txt-input"]:focus {background-color: rgb(238, 235, 240);}
 /* focus  */
 input:focus {
     transform: translateX(-2px);
     border-radius: 5px;
-    background-color: #f0f3f3;
 }
-#name-input,#email-input,#nationality-input,#gender-input,#age-input
-{
-    width: 250px;
-}
-#nationality-input{
-    width: 275px;
-    height: 40px;
-    z-index: 1002;
-}
-/* Style for gender radio buttons */
-.radio-group {
-    margin-top: 2%;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .radio-group label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .radio-group input[type="radio"] {
-    margin-right: 10px;
-  }
-  .error-container{
-    color: red;
-  }
+
 /* //////////////////////////////////////////// */
 /* //////////////////////////////////////////// */
 
@@ -141,7 +114,7 @@ input:focus {
     color: #252537;
   
     width: 280px;
-    height: 40px;
+    height: 50px;
   
     padding: 0 20px;
     background: #fff;
@@ -176,11 +149,7 @@ border: 1px solid black;
 
 /*     Sign Up button  */
 .sign-up {background: #B8F2E6;}
-.btn.sign-up:disabled {
-    background-color: #ccc; 
-    color: #999;
-    cursor: not-allowed; 
-  }
+
 
 /* buttons hover */
 .btn:hover {

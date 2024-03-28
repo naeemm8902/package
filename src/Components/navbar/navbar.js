@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import './navbar2.css';
 import Button from './component/button';
-import { useHistory } from 'react-router-dom'; // Import useHistory from react-router-dom
+import { useHistory, useNavigate } from 'react-router-dom'; // Import useHistory from react-router-dom
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
-
+const navigate = useNavigate();
   const handleMenuClick = () => {
     setShowMenu(!showMenu);
   };
   const loginpage=()=>{
     // history.push('/login');
-
+    navigate('/login')
   }
   return (
     <nav>

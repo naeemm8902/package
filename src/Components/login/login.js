@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './login.css'; // Import the CSS file for styling
+import Navbar from '../navbar/navbar';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -45,6 +46,8 @@ const Login = () => {
   }
 
   return (
+    <div className="main">
+    <Navbar />
     <div className="overlay">
       <form onSubmit={handleform}>
         <div className="con">
@@ -110,6 +113,7 @@ const Login = () => {
           </div>
         </div>
       </form>
+    </div>
     </div>
   );
 };

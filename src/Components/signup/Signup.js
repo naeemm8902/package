@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Select from 'react-select'; // Import the Select component
 import './signup.css'; // Import the CSS file for styling
 
@@ -19,6 +19,11 @@ const Signup = () => {
   const [emailError, setEmailError] = useState('');
   const [submittedData, setSubmittedData] = useState(null);
   const [formValid, setFormValid] = useState(false);
+
+
+  useEffect(() => {
+    validate_form();
+  },[name, age, nationality, gender, password, email, cpassword]);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -45,6 +50,10 @@ const Signup = () => {
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
+// Call validate_form() after setting nationality value
+const handleNationalityChange = (selectedOption) => {
+  setNationality(selectedOption.value);
+};
 
   // Data of Countries
   const countries = [
@@ -113,21 +122,26 @@ const Signup = () => {
     console.log('Form Data:', formData);
     setSubmittedData(formData);
     // Check if all required fields are filled and passwords match
-    if (
-      name &&
-      age &&
-      nationality &&
-      gender &&
-      email &&
-      password &&
-      cpassword &&
-      password === cpassword
-    ) {
-      setFormValid(true); // Set formValid to true if all conditions are met
-    } else {
-      setFormValid(false);
-    }
   };
+// Validate Form
+const validate_form = () => {
+
+  if (
+    name &&
+    age &&
+    nationality &&
+    gender &&
+    email &&
+    password &&
+    cpassword &&
+    password.length >= 8 &&
+    password === cpassword
+  ) {
+    setFormValid(true);
+  } else {
+    setFormValid(false);
+  }
+};
 
   return (
     <div className="overlay">
@@ -148,7 +162,11 @@ const Signup = () => {
               type="text"
               placeholder="Name"
               value={name}
-              onChange={handleNameChange}
+              onChange={(e) => {
+                handleNameChange(e);
+                // validate_form();
+                  }
+                }
               required
             />
             <br />
@@ -161,7 +179,11 @@ const Signup = () => {
               type="email"
               placeholder="Email"
               value={email}
-              onChange={handleEmailChange}
+              onChange={(e) => {
+              handleEmailChange(e);
+              // validate_form();
+                }
+              }
               required
             />
             <div className="error-container">
@@ -174,13 +196,16 @@ const Signup = () => {
               id="nationality-input"
               options={countries}
               value={countries.find((country) => country.value === nationality)}
-              onChange={(selectedOption) =>
-                setNationality(selectedOption.value)
-              }
+              // onChange={(selectedOption) =>
+              //   setNationality(selectedOption.value)
+              // }
+              onChange= {
+                  handleNationalityChange
+              } 
+
               placeholder="Select Nationality"
               required
             />
-
             <span className="input-item">
               <i className="fa fa-user-circle"></i>
             </span>
@@ -190,7 +215,11 @@ const Signup = () => {
               type="number"
               placeholder="Age"
               value={age}
-              onChange={handleAgeChange}
+              onChange={(e) => {
+                handleAgeChange(e);
+                // validate_form();
+                  }
+                }
               required
             />
             <div className="error-container">
@@ -207,7 +236,11 @@ const Signup = () => {
                   name="gender"
                   value="male"
                   checked={gender === 'male'}
-                  onChange={handleGenderChange}
+                  onChange={(e) => {
+                    handleGenderChange(e);
+                    // validate_form();
+                      }
+                    }
                 />
                 Male
               </label>
@@ -219,8 +252,11 @@ const Signup = () => {
                   name="gender"
                   value="female"
                   checked={gender === 'female'}
-                  onChange={handleGenderChange}
-                />
+                  onChange={(e) => {
+                    handleGenderChange(e);
+                    // validate_form();
+                      }
+                    }                />
                 Female
               </label>
               <br />
@@ -231,8 +267,11 @@ const Signup = () => {
                   name="gender"
                   value="other"
                   checked={gender === 'other'}
-                  onChange={handleGenderChange}
-                />
+                  onChange={(e) => {
+                    handleGenderChange(e);
+                    // validate_form();
+                      }
+                    }                />
                 Other
               </label>
             </div>
@@ -246,7 +285,11 @@ const Signup = () => {
               id="password"
               name="password"
               value={password}
-              onChange={handlePasswordChange}
+              onChange={(e) => {
+                handlePasswordChange(e);
+                // validate_form();
+                  }
+                }
               //   onChange={(e) => setPassword(e.target.value)}
               required
             />
@@ -275,7 +318,11 @@ const Signup = () => {
               id="cpassword"
               name="cpassword"
               value={cpassword}
-              onChange={handlePasswordChange2}
+              onChange={(e) => {
+                handlePasswordChange2(e);
+                // validate_form();
+                  }
+                }
               //   onChange={(e) => setCPassword(e.target.value)}
               required
             />
@@ -303,9 +350,8 @@ const Signup = () => {
             <button
               type="submit"
               //   onSubmit={submitsingup}
-              className="btn sign-up"
-              //   disabled={!formValid}
-            >
+              className={`btn sign-up ${formValid ? '' : 'disabled'}`}
+              disabled={!formValid}            >
               Signup
             </button>
             <br />

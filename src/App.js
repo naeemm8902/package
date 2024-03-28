@@ -5,15 +5,11 @@ import './App.css';
 import Navbar from './Components/navbar/navbar';
 import Login from './Components/login/login';
 import Signup from './Components/signup/Signup';
+import { RouterProvider } from 'react-router-dom';
+import myRoutes from './navigation/MyRoutes';
 
 export default function App() {
   return (
-    <div className="main">
-      <Navbar />
-      {/* <Login /> */}
-      {/* <Signup /> */}
-      <Home/>
-      {/* <ClassC /> */}
-    </div>
+      <RouterProvider router={myRoutes} />
   );
 }
