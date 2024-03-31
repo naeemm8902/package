@@ -53,7 +53,7 @@
 @media screen and (min-width: 769px) {
   .cards {
     height: 100vh; /* Adjusted for desktop */
-    background: linear-gradient(135deg, #43cea2, #185a9d);
+    /* background: linear-gradient(135deg, #43cea2, #185a9d); */
   }
 
   .card img {
@@ -90,7 +90,7 @@
 @media screen and (max-width: 768px) {
   .cards {
     height: auto; /* Adjusted for mobile devices */
-    background: linear-gradient(135deg, #43cea2, #185a9d);
+    /* background: linear-gradient(135deg, #43cea2, #185a9d); */
   }
 
   .card img {
