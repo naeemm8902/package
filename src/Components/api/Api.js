@@ -15,6 +15,7 @@ export const fetchUniversities=(limit)=>{
         })
         .catch((error)=>{
             console.log('Error' + error)
+            return(error);
         });
 
 };

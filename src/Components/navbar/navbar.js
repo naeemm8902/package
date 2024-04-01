@@ -73,6 +73,14 @@ export default function Navbar({
             Data
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/fetch"
+            className={({ isActive, isPending }) => (isActive ? 'active' : '')}
+          >
+            Api
+          </NavLink>
+        </li>
       </ul>
       <div id="mobile" onClick={handleMenuClick}>
         <i id="bar" className={showMenu ? 'fas fa-times' : 'fas fa-bars'}></i>

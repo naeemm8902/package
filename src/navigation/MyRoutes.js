@@ -13,6 +13,8 @@ import Blog from "../Components/blog/Blog";
 import Contact from "../Components/contact/Contact";
 import About from "../Components/about/About";
 import Data from "../Components/data/Data";
+// import Fetch from "../Components/fetch/Fetch";
+import FetchScreen from "../Components/fetch/FetchScreen";
 
 
 const myRoutes = createBrowserRouter([
@@ -64,7 +66,13 @@ const myRoutes = createBrowserRouter([
         errorElement: <ErrorPage />,
 
       },
-  
+      {
+        path: "/fetch",
+        element: <FetchScreen/>,
+        errorElement: <ErrorPage />,
+
+      },
+    
  
   ]);
   
