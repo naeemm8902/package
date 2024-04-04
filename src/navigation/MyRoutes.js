@@ -15,6 +15,8 @@ import About from "../Components/about/About";
 import Data from "../Components/data/Data";
 // import Fetch from "../Components/fetch/Fetch";
 import FetchScreen from "../Components/fetch/FetchScreen";
+import Movies from "../Components/api/Movies";
+import Moviedetails from "../Components/moviedetails/Moviedetails";
 
 
 const myRoutes = createBrowserRouter([
@@ -68,7 +70,15 @@ const myRoutes = createBrowserRouter([
       },
       {
         path: "/fetch",
-        element: <FetchScreen/>,
+        element: <Movies/>,
+        // element: <FetchScreen/>,
+        errorElement: <ErrorPage />,
+
+      },
+      {
+        path: "/Moviesdetails",
+        element: <Moviedetails/>,
+        // element: <FetchScreen/>,
         errorElement: <ErrorPage />,
 
       },

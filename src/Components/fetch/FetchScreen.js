@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../navbar/navbar';
 // import {Items} from './Items'
 // import './item.css'
-import { fetchUniversities } from '../api/Api';
+// import { fetchUniversities } from '../api/Api';
+import { api2 } from '../api/Api2';
 
 export default function Data() {
   const [data, setData] = useState([]);
@@ -12,7 +13,7 @@ export default function Data() {
   }, []);
 
   const fetchUni = () => {
-    fetchUniversities(100)
+    api2(100)
       .then((response) => {
         setData(response.data);
       })
